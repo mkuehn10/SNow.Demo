@@ -79,7 +79,6 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Lookup_User" sap:VirtualizedContainerService.HintSize="884,914" sap2010:WorkflowViewState.IdRef="Flowchart_2">
@@ -127,8 +126,8 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="444,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Getting Assets &amp; Credentials&quot;]" />
-        <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SNow" DisplayName="Get Credential" FolderPath="ServiceNow" sap:VirtualizedContainerService.HintSize="444,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[SNowPassword]" Username="[SNowUser]" />
-        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="SNowURL" DisplayName="Get Asset" FolderPath="ServiceNow" sap:VirtualizedContainerService.HintSize="444,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+        <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SNow" DisplayName="Get ServiceNow Credentials" FolderPath="ServiceNow" sap:VirtualizedContainerService.HintSize="444,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[SNowPassword]" Username="[SNowUser]" />
+        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="SNowURL" DisplayName="Get ServiceNow URL" FolderPath="ServiceNow" sap:VirtualizedContainerService.HintSize="444,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
           <ui:GetRobotAsset.Value>
             <OutArgument x:TypeArguments="x:String">[SNowURL]</OutArgument>
           </ui:GetRobotAsset.Value>
@@ -159,8 +158,8 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:DeserializeJson x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[formOutputDict]" JsonString="[formOutput]" />
-                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <ui:DeserializeJson x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="Convert Form Output to  Dictionary" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[formOutputDict]" JsonString="[formOutput]" />
+                    <Assign DisplayName="Extract User Name" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[userID]</OutArgument>
                       </Assign.To>
@@ -168,7 +167,7 @@
                         <InArgument x:TypeArguments="x:String">[formOutputDict("userID").ToString]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign DisplayName="Construct Query to Search User Table" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[query]</OutArgument>
                       </Assign.To>
@@ -222,16 +221,15 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <usa:GetRecords BusinessEntityName="{x:Null}" DisplayName="Search ServiceNow For user_name" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRecords_2" Query="[query]" Result="[dt_Result]" Status="[userQueryStatus]" TestQuery="&amp;user_name=abel.tuter">
                           <usa:GetRecords.BusinessEntity>
-                            <ubme:BusinessEntity AllFields="{x:Null}" AuthFields="{x:Null}" Connection="{x:Null}" Id="{x:Null}" Metadata="{x:Reference __ReferenceID0}" SelectedFields="{x:Null}" Name="User (sys_user)">
+                            <ubme:BusinessEntity AllFields="{x:Null}" AuthFields="{x:Null}" Connection="{x:Null}" Id="{x:Null}" SelectedFields="{x:Null}" Name="User (sys_user)">
                               <ubme:BusinessEntity.EntityMetadata>
-                                <usm:ServiceNowEntityMetaData Description="{x:Null}" EligibleOperations="-1" IsCustomEntity="False" Name="User (sys_user)">
-                                  <usm:ServiceNowEntityMetaData.Metadata>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID0">
-                                      <x:String x:Key="TableName">sys_user</x:String>
-                                    </scg:Dictionary>
-                                  </usm:ServiceNowEntityMetaData.Metadata>
-                                </usm:ServiceNowEntityMetaData>
+                                <usm:ServiceNowEntityMetaData Description="{x:Null}" Metadata="{x:Reference __ReferenceID0}" EligibleOperations="-1" IsCustomEntity="False" Name="User (sys_user)" />
                               </ubme:BusinessEntity.EntityMetadata>
+                              <ubme:BusinessEntity.Metadata>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID0">
+                                  <x:String x:Key="TableName">sys_user</x:String>
+                                </scg:Dictionary>
+                              </ubme:BusinessEntity.Metadata>
                               <ubme:BusinessEntity.TelemetryProperties>
                                 <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
                               </ubme:BusinessEntity.TelemetryProperties>
@@ -305,14 +303,14 @@
                               <av:Size x:Key="ShapeSize">200,66</av:Size>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="User Name Found" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                          <Sequence DisplayName="User Name Found" sap:VirtualizedContainerService.HintSize="376,813" sap2010:WorkflowViewState.IdRef="Sequence_17">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;User found; looking up Administrator&quot;]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign DisplayName="Extract First Name" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[firstName]</OutArgument>
                               </Assign.To>
@@ -320,7 +318,7 @@
                                 <InArgument x:TypeArguments="x:String">[dt_Result.Rows(0)("first_name").ToString]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                            <Assign DisplayName="Extract Last Name" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_8">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[lastName]</OutArgument>
                               </Assign.To>
@@ -328,7 +326,7 @@
                                 <InArgument x:TypeArguments="x:String">[dt_Result.Rows(0)("last_name").ToString]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign DisplayName="Extract User's Administrator" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_9">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[userAdmin]</OutArgument>
                               </Assign.To>
@@ -336,7 +334,7 @@
                                 <InArgument x:TypeArguments="x:String">[dt_Result.Rows(0)("u_user_admin").ToString]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                            <Assign DisplayName="Extract SysID" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[SysId]</OutArgument>
                               </Assign.To>
