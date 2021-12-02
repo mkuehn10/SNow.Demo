@@ -1,7 +1,7 @@
 {
   "name": "SNow Demo",
   "description": "Blank Process",
-  "main": "Search For User Name.xaml",
+  "main": "ServiceNow Demo.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.9.5]",
     "UiPath.Form.Activities": "[1.7.1]",
@@ -54,10 +54,15 @@
       "uniqueId": "b188485f-f95b-40be-bd6b-a95f336c6afe",
       "input": [],
       "output": []
+    },
+    {
+      "filePath": "ServiceNow Demo.xaml",
+      "uniqueId": "fe06926b-2f5c-4b01-994b-5a33cf17062e",
+      "input": [],
+      "output": []
     }
   ],
   "isTemplate": false,
   "templateProjectData": {},
-  "publishData": {},
-  "targetFramework": "Legacy"
+  "publishData": {}
 }

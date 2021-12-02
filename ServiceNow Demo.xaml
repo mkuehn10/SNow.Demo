@@ -1,0 +1,259 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ServiceNow_Demo" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="860,2020" sap2010:WorkflowViewState.IdRef="ServiceNow_Demo_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ubac="clr-namespace:UiPath.BAF.Activities.ContextModel;assembly=UiPath.ServiceNow.Activities" xmlns:ubmcab="clr-namespace:UiPath.BAF.Models.Connection.Authentication.BasicAuth;assembly=UiPath.ServiceNow" xmlns:ubme="clr-namespace:UiPath.BAF.Models.Entity;assembly=UiPath.ServiceNow" xmlns:ubmr="clr-namespace:UiPath.BAF.Models.Response;assembly=UiPath.ServiceNow" xmlns:ubt="clr-namespace:UiPath.BAF.Telemetry;assembly=UiPath.ServiceNow" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPath.ServiceNow.Activities;assembly=UiPath.ServiceNow.Activities" xmlns:usm="clr-namespace:UiPath.ServiceNow.Models;assembly=UiPath.ServiceNow" xmlns:uss="clr-namespace:UiPath.ServiceNow.ServiceFactory;assembly=UiPath.ServiceNow" xmlns:uss1="clr-namespace:UiPath.ServiceNow.Service;assembly=UiPath.ServiceNow" xmlns:uss2="clr-namespace:UiPath.ServiceNow.Services;assembly=UiPath.ServiceNow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="42">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Form.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.ServiceNow.Models</x:String>
+      <x:String>UiPath.BAF.Models.Connection.APIConnection</x:String>
+      <x:String>UiPath.BAF.Models.Connection</x:String>
+      <x:String>UiPath.BAF.Telemetry</x:String>
+      <x:String>UiPath.BAF.Activities.ContextModel</x:String>
+      <x:String>UiPath.BAF.Models</x:String>
+      <x:String>UiPath.BAF.ServiceInterfaces</x:String>
+      <x:String>UiPath.BAF.Models.Response</x:String>
+      <x:String>UiPath.BAF.Models.Entity</x:String>
+      <x:String>UiPath.ServiceNow.Activities</x:String>
+      <x:String>UiPath.BAF.Activities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Form.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.ServiceNow</AssemblyReference>
+      <AssemblyReference>UiPath.ServiceNow.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ServiceNow_Demo" sap:VirtualizedContainerService.HintSize="743,1815" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="userEmail" />
+      <Variable x:TypeArguments="sd:DataTable" Name="userIncidents" />
+      <Variable x:TypeArguments="ss:SecureString" Name="SNowPassword" />
+      <Variable x:TypeArguments="x:String" Name="SNowUser" />
+      <Variable x:TypeArguments="x:String" Name="SNowURL" />
+      <Variable x:TypeArguments="x:String" Name="button" />
+      <Variable x:TypeArguments="x:String" Name="output" />
+      <Variable x:TypeArguments="x:String" Name="userIncidentsString" />
+      <Variable x:TypeArguments="x:String" Name="dtOutput" />
+      <Variable x:TypeArguments="ubmr:ResponseStatus" Name="userQueryStatus" />
+      <Variable x:TypeArguments="sd:DataTable" Name="inputDT" />
+      <Variable x:TypeArguments="x:String" Name="label">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SNow" DisplayName="Get ServiceNow Credentials" FolderPath="ServiceNow" sap:VirtualizedContainerService.HintSize="701,22" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[SNowPassword]" Username="[SNowUser]" />
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="SNowURL" DisplayName="Get ServiceNow URL" FolderPath="ServiceNow" sap:VirtualizedContainerService.HintSize="701,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[SNowURL]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" IconPath="{x:Null}" LocalCSSFilePath="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="8232a8cf-ab67-41fe-ba5d-7e40f8493946" DisableMaximizeButton="False" DisableMinimizeButton="False" DisableSanitize="False" DisplayName="Create Form" FormFieldsOutputData="[output]" FormHeight="400" FormSchema="%[{&quot;label&quot;:&quot;User Email&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;userEmail&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;submit&quot;,&quot;properties&quot;:{&quot;closeOnSubmit&quot;:&quot;false&quot;},&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:true,&quot;isResetData&quot;:false},{&quot;refreshOnChange&quot;:true,&quot;key&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;label&quot;:&quot;Label&quot;,&quot;type&quot;:&quot;label&quot;},{&quot;label&quot;:&quot;Incidents&quot;,&quot;disableAddingRemovingRows&quot;:true,&quot;reorder&quot;:false,&quot;addAnotherPosition&quot;:&quot;bottom&quot;,&quot;layoutFixed&quot;:false,&quot;enableRowGroups&quot;:false,&quot;initEmpty&quot;:true,&quot;hideLabel&quot;:true,&quot;key&quot;:&quot;userIncidents&quot;,&quot;type&quot;:&quot;datagrid&quot;,&quot;input&quot;:true,&quot;tableView&quot;:false,&quot;components&quot;:[{&quot;label&quot;:&quot;Incident Number&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;number&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Short Description&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;short_description&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true}]}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="701,1353" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False" SelectedButton="[button]" StartAsMinimized="False">
+      <ufa:FormActivity.Body>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="663,1227" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="ui:Window" Name="formWindow" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[button = &quot;submit&quot;]" sap:VirtualizedContainerService.HintSize="621,1135" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="476,987" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Form submitted with &quot; + userEmail]" />
+                  <usa:ServiceNowScopeActivity ClientId="{x:Null}" ClientSecret="{x:Null}" ExistingConnection="{x:Null}" ServiceNowConnection="{x:Null}" DisplayName="ServiceNow Application Scope" EndpointUrl="[SNowURL]" sap:VirtualizedContainerService.HintSize="434,764" sap2010:WorkflowViewState.IdRef="ServiceNowScopeActivity_1" Password="[SNowPassword]" TelemetryEnabled="False" ThrowExceptionOnError="False" UseOauth2="False" Username="[SNowUser]">
+                    <usa:ServiceNowScopeActivity.Body>
+                      <ActivityAction x:TypeArguments="ubac:ScopeActivityContext">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ubac:ScopeActivityContext" Name="ScopeActivityContext" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,653" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="incidentQuery" />
+                            <Variable x:TypeArguments="sd:DataTable" Name="dt_Result" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <usa:GetRecords BusinessEntityName="{x:Null}" DisplayName="Search ServiceNow For user_name" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRecords_1" Query="[&quot;&amp;email=&quot; + userEmail]" Result="[dt_Result]" Status="[userQueryStatus]" TestQuery="&amp;email=abraham.lincoln@example.com">
+                            <usa:GetRecords.BusinessEntity>
+                              <ubme:BusinessEntity AllFields="{x:Null}" AuthFields="{x:Null}" Connection="{x:Null}" Id="{x:Null}" Metadata="{x:Reference __ReferenceID0}" SelectedFields="{x:Null}" Name="User (sys_user)">
+                                <ubme:BusinessEntity.EntityMetadata>
+                                  <usm:ServiceNowEntityMetaData Description="{x:Null}" EligibleOperations="-1" IsCustomEntity="False" Name="User (sys_user)">
+                                    <usm:ServiceNowEntityMetaData.Metadata>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID0">
+                                        <x:String x:Key="TableName">sys_user</x:String>
+                                      </scg:Dictionary>
+                                    </usm:ServiceNowEntityMetaData.Metadata>
+                                  </usm:ServiceNowEntityMetaData>
+                                </ubme:BusinessEntity.EntityMetadata>
+                                <ubme:BusinessEntity.TelemetryProperties>
+                                  <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+                                </ubme:BusinessEntity.TelemetryProperties>
+                              </ubme:BusinessEntity>
+                            </usa:GetRecords.BusinessEntity>
+                          </usa:GetRecords>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[incidentQuery]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">["&amp;caller_id=" + dt_Result.Rows(0)("sys_id").ToString]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[label]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[dt_Result.Rows(0)("first_name").ToString + " " + dt_Result.Rows(0)("last_name").ToString + " (" + dt_Result.Rows(0)("sys_id").ToString + ")"]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <usa:GetRecords BusinessEntityName="{x:Null}" Status="{x:Null}" DisplayName="Search ServiceNow Records" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRecords_2" Query="[incidentQuery]" Result="[userIncidents]" TestQuery="&amp;caller_id=77ad8176731313005754660c4cf6a7de">
+                            <usa:GetRecords.BusinessEntity>
+                              <ubme:BusinessEntity AllFields="{x:Null}" AuthFields="{x:Null}" Connection="{x:Null}" Id="{x:Null}" Metadata="{x:Reference __ReferenceID1}" SelectedFields="{x:Null}" Name="Incident (incident)">
+                                <ubme:BusinessEntity.EntityMetadata>
+                                  <usm:ServiceNowEntityMetaData Description="{x:Null}" EligibleOperations="-1" IsCustomEntity="False" Name="Incident (incident)">
+                                    <usm:ServiceNowEntityMetaData.AllAncestors>
+                                      <x:String>task</x:String>
+                                    </usm:ServiceNowEntityMetaData.AllAncestors>
+                                    <usm:ServiceNowEntityMetaData.Metadata>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID1">
+                                        <x:String x:Key="TableName">incident</x:String>
+                                      </scg:Dictionary>
+                                    </usm:ServiceNowEntityMetaData.Metadata>
+                                  </usm:ServiceNowEntityMetaData>
+                                </ubme:BusinessEntity.EntityMetadata>
+                                <ubme:BusinessEntity.TelemetryProperties>
+                                  <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+                                </ubme:BusinessEntity.TelemetryProperties>
+                              </ubme:BusinessEntity>
+                            </usa:GetRecords.BusinessEntity>
+                          </usa:GetRecords>
+                          <ui:OutputDataTable DataTable="[userIncidents]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[userIncidentsString]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[userIncidentsString]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </usa:ServiceNowScopeActivity.Body>
+                    <usa:ServiceNowScopeActivity.DesignConnectionRequest>
+                      <ubmcab:BasicAuthConnectionRequest ServerInstance="https://dev96872.service-now.com/" UserName="admin">
+                        <ubmcab:BasicAuthConnectionRequest.Password>
+                          <ss:SecureString />
+                        </ubmcab:BasicAuthConnectionRequest.Password>
+                      </ubmcab:BasicAuthConnectionRequest>
+                    </usa:ServiceNowScopeActivity.DesignConnectionRequest>
+                    <usa:ServiceNowScopeActivity.ServiceFactory>
+                      <uss:ServiceNowServiceFactory BusinessEntityExecuteService="{x:Null}">
+                        <uss:ServiceNowServiceFactory.AttachmentService>
+                          <uss2:AttachmentService />
+                        </uss:ServiceNowServiceFactory.AttachmentService>
+                        <uss:ServiceNowServiceFactory.BusinessEntityService>
+                          <uss2:BusinessEntityService />
+                        </uss:ServiceNowServiceFactory.BusinessEntityService>
+                        <uss:ServiceNowServiceFactory.ConnectionService>
+                          <uss1:ConnectionService />
+                        </uss:ServiceNowServiceFactory.ConnectionService>
+                        <uss:ServiceNowServiceFactory.MetadataService>
+                          <uss2:MetadataService />
+                        </uss:ServiceNowServiceFactory.MetadataService>
+                        <uss:ServiceNowServiceFactory.QueryService>
+                          <uss2:QueryService />
+                        </uss:ServiceNowServiceFactory.QueryService>
+                        <uss:ServiceNowServiceFactory.SampleDataService>
+                          <uss2:SampleDataService />
+                        </uss:ServiceNowServiceFactory.SampleDataService>
+                      </uss:ServiceNowServiceFactory>
+                    </usa:ServiceNowScopeActivity.ServiceFactory>
+                    <usa:ServiceNowScopeActivity.TelemetryProperties>
+                      <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+                    </usa:ServiceNowScopeActivity.TelemetryProperties>
+                  </usa:ServiceNowScopeActivity>
+                </Sequence>
+              </If.Then>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ufa:FormActivity.Body>
+      <ufa:FormActivity.DelayBody>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+          <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        </ActivityAction>
+      </ufa:FormActivity.DelayBody>
+      <ufa:FormActivity.FormFieldsCollection>
+        <InOutArgument x:TypeArguments="x:String" x:Key="userEmail">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="userEmail" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="userIncidents">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="userIncidents" />
+        </InOutArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="label">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="label" />
+        </InOutArgument>
+      </ufa:FormActivity.FormFieldsCollection>
+    </ufa:FormActivity>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="701,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[output.ToString]" />
+  </Sequence>
+</Activity>
